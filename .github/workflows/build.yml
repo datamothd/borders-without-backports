@@ -24,7 +24,9 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: ${{ steps.gradle-properties.outputs.dependencies-java }}
+          java-version: |
+            21
+            ${{ steps.gradle-properties.outputs.dependencies-java }}
 
       - name: Build artifacts
         run: ./gradlew clean build --no-daemon

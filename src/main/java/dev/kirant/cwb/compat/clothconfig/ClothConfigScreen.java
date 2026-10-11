@@ -1,3 +1,4 @@
+//? if >=1.0 {
 package dev.kirant.cwb.compat.clothconfig;
 
 import dev.kirant.cwb.CWBConfig;

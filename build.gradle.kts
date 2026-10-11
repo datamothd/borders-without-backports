@@ -13,7 +13,7 @@ val sourcesUrl = optional("mod.sources", "https://github.com/$modAuthor/$modId")
 base.archivesName = modId
 version = modVersion
 group = modGroup ?: ""
-loom.accessWidenerPath = file("src/main/resources/$modId.accesswidener")
+loom.accessWidenerPath = rootProject.file("src/main/resources/$modId.accesswidener")
 
 repositories {
     maven("https://api.modrinth.com/maven/") { content { includeGroup("maven.modrinth") } }
@@ -69,7 +69,7 @@ tasks.processResources {
 }
 
 tasks.jar {
-    from(".") { include("LICENSE*") }
+    from(rootProject.projectDir) { include("LICENSE*") }
     manifest.attributes("MixinConfigs" to "$modId.mixins.json")
 }
 

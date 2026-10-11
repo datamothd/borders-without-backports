@@ -8,6 +8,7 @@ import com.sun.jna.CallbackReference;
 import com.sun.jna.Pointer;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFWNativeCocoa;
+import org.lwjgl.glfw.GLFWNativeNSGL;
 import org.lwjgl.glfw.GLFWNativeWin32;
 import org.lwjgl.system.*;
 import org.lwjgl.system.macosx.ObjCRuntime;
@@ -202,6 +203,12 @@ public final class MinecraftWindow {
                 WINDOW_WILL_RETURN_FIELD_EDITOR_CALLBACKS.put(window, windowWillReturnFieldEditorCallback);
             }
             return success;
+        }
+
+        public static void setUseScaledFramebuffer(Window window, boolean useScaledFramebuffer) {
+            Proxy nsWindow = new Proxy(new Pointer(GLFWNativeCocoa.glfwGetCocoaWindow(window.handle())));
+            nsWindow.sendProxy("contentView").send("setWantsBestResolutionOpenGLSurface:", useScaledFramebuffer);
+            new Proxy(new Pointer(GLFWNativeNSGL.glfwGetNSGLContext(window.handle()))).send("update");
         }
 
         private MacOS() { }
