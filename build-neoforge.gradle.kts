@@ -14,7 +14,7 @@ group = "dev.${modAuthor.lowercase().replace(Regex("[^a-z0-9]"), "")}.$modId"
 
 stonecutter {
     constants.putAll(mapOf("fabric" to false, "neoforge" to true, "forge" to false))
-    dependencies.putAll(mapOf("sodium" to "0.0.0", "modmenu" to "0.0.0", "cloth-config" to "15.0.140", "yacl" to "3.8.2"))
+    dependencies.putAll(mapOf("sodium" to "0.8.13", "modmenu" to "0.0.0", "cloth-config" to "15.0.140", "yacl" to "3.8.2"))
     replacements {
         string(true) {
             replace("MonitorManager", "ScreenManager")
@@ -25,6 +25,7 @@ stonecutter {
             replace("monitor.currentMode()", "monitor.getCurrentMode()")
             replace("monitor.monitor()", "monitor.getMonitor()")
             replace("updateFullscreenIfChanged", "updateFullscreen")
+            replace("Identifier", "ResourceLocation")
             replace("FMLLoader.getCurrent().getLoadingModList()", "FMLLoader.getLoadingModList()")
             replace("@net.neoforged.fml.common.Mod(CWB.MOD_ID)", "@net.neoforged.fml.common.Mod(value = CWB.MOD_ID, dist = net.neoforged.api.distmarker.Dist.CLIENT)")
             replace("User32.GetWindowLongPtr(null, ", "User32.GetWindowLongPtr(")
@@ -54,9 +55,11 @@ neoForge {
 
 repositories {
     maven("https://api.modrinth.com/maven/") { content { includeGroup("maven.modrinth") } }
+    maven("https://maven.caffeinemc.net/releases/") { content { includeGroup("net.caffeinemc") } }
 }
 
 dependencies {
+    compileOnly("net.caffeinemc:sodium-neoforge-api:0.8.13+mc1.21.1")
     compileOnly("maven.modrinth:cloth-config:15.0.140+neoforge")
     compileOnly("maven.modrinth:yacl:3.8.2+1.21.1-neoforge")
     compileOnly("ca.weblite:java-objc-bridge:1.1")

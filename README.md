@@ -14,6 +14,20 @@ Unlike other "borderless fullscreen" mods, **Cubes Without Borders** is highly c
 
 ----
 
+## Backports in this fork
+
+Minecraft 1.21.1 is supported on **Fabric** and **NeoForge**, using Java 21.
+On Fabric, opening the configuration through Mod Menu requires either
+[Cloth Config](https://modrinth.com/mod/cloth-config) or
+[YACL](https://modrinth.com/mod/yacl) installed for Minecraft 1.21.1.
+Both backports integrate the Borderless option into Sodium 0.8.13's video settings.
+Sodium is optional; vanilla Video Settings and F11 also work without it installed.
+
+Build either backport with `./gradlew :1.21.1-fabric:build` or
+`./gradlew :1.21.1-neoforge:build`.
+
+----
+
 ## Usage
 
 To enable borderless fullscreen, go to the `Video Settings` tab, where you would typically find the `Fullscreen` setting, and switch it to the newly added third option: `Borderless`.
