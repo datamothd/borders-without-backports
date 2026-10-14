@@ -12,8 +12,6 @@ A mod that allows you to play Minecraft in a borderless fullscreen window. This 
 
 Unlike other "borderless fullscreen" mods, **Cubes Without Borders** is highly configurable, does not hinder your input latency, and explicitly supports all major platforms - Linux, macOS, and even Windows - instead of providing a passable experience for only one group of players while making it seem as though others do not exist.
 
-----
-
 ## Backports in this fork
 
 Minecraft 1.21.1 is supported on **Fabric** and **NeoForge**, using Java 21.
@@ -21,12 +19,10 @@ On Fabric, opening the configuration through Mod Menu requires either
 [Cloth Config](https://modrinth.com/mod/cloth-config) or
 [YACL](https://modrinth.com/mod/yacl) installed for Minecraft 1.21.1.
 Both backports integrate the Borderless option into Sodium 0.8.13's video settings.
-Sodium is optional; vanilla Video Settings and F11 also work without it installed.
+Sodium is optional. Vanilla video settings and F11 also work without it installed.
 
 Build either backport with `./gradlew :1.21.1-fabric:build` or
 `./gradlew :1.21.1-neoforge:build`.
-
-----
 
 ## Usage
 
